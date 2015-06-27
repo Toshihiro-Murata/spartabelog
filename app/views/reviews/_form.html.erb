@@ -1,23 +1,32 @@
-<% if @review.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= @review.errors.count %>件のエラーがあります。</h2>
+<% if @review.id and current_user.id != @review.id %>
+  <div>
+    <p>他のユーザーのレビューは編集できません！</p>
+    <%= link_to 'もどる', :back, class: "btn btn-default" %>
+  </div>
+<% else %>
 
-    <ul>
-    <% @review.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @review.errors.count %>件のエラーがあります。</h2>
 
-<%= form_for([@restaurant, @review]) do |f| %>
-  <div class="form-group">
-    <%= f.label :score, '点数' %>
-    <%= f.number_field :score, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :body, 'レビュー' %>
-    <%= f.text_area :body, class: "form-control" %>
-  </div>
-  <%= f.submit '登録する', class: "btn btn-default" %>
+      <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_for([@restaurant, @review]) do |f| %>
+    <div class="form-group">
+      <%= f.label :score, '点数' %>
+      <%= f.number_field :score, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :body, 'レビュー' %>
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
+    <%= f.submit '登録する', class: "btn btn-default" %>
+  <% end %>
+
 <% end %>
