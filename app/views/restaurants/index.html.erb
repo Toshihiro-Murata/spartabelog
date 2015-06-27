@@ -10,7 +10,7 @@
 <tbody>
 <% @restaurants.each do |restaurant| %>
   <tr>
-    <td><a href="<%= restaurant.url %>"><%= restaurant.name %></a></td>
+    <td><a href="<%= restaurant_path(restaurant) %>"><%= restaurant.name %></a></td>
     <td><%= restaurant.tel %></td>
     <td><%= restaurant.address %></td>
 <% end %>

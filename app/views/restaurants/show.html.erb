@@ -1,0 +1,44 @@
+<h1>
+  <%= @restaurant.name %>
+  <span class="pull-right">
+    <%= @restaurant.tel %>
+  </span>
+</h1>
+
+<hr>
+
+<h2>#{レビュー平均点}</h2>
+
+<h2>レビュー一覧</h2>
+#{レビュー一覧}
+
+<hr>
+
+<div class="panel panel-default">
+      <div class="panel-heading">
+        店舗情報
+        <span class="pull-right">
+        <a href="<%= edit_restaurant_path(@restaurant) %>">編集する</a>
+        </span>
+      </div>
+        <table class="table">
+          <tr>
+            <th>店名</th>
+            <td><%= @restaurant.name %></td>
+          </tr>
+          <tr>
+            <th>TEL・予約</th>
+            <td><%= @restaurant.tel %></td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td><%= @restaurant.address %></td>
+          </tr>
+          <tr>
+            <th>ホームページ</th>
+            <td><a href="<%= @restaurant.url %>"><%= @restaurant.url %></a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+<hr>
