@@ -1,4 +1,15 @@
 <h1>レビューを投稿する</h1>
 
 <%= render 'restaurant' %>
-<%= render 'form' %>
+
+<% if !@review.id and already_reviewed?(@restaurant, current_user.id) %>
+  <div>
+    <p>すでにレビュー済みです！</p>
+    <%= link_to 'もどる', :back, class: "btn btn-default" %>
+  </div>
+
+<% else %>
+
+  <%= render 'form' %>
+
+<% end %>

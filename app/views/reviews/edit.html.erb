@@ -1,4 +1,15 @@
 <h1>レビューの編集</h1>
 
 <%= render 'restaurant' %>
-<%= render 'form' %>
+
+<% if @review.id and current_user.id != @review.user_id %>
+  <div>
+    <p>他のユーザーのレビューは編集できません！</p>
+    <%= link_to 'もどる', :back, class: "btn btn-default" %>
+  </div>
+
+<% else %>
+
+  <%= render 'form' %>
+
+<% end %>
