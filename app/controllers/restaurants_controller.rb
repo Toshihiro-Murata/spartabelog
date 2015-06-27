@@ -10,6 +10,19 @@ class RestaurantsController < ApplicationController
   def edit
   end
 
+  def new
+    @restaurant = Restaurant.new
+  end
+
+  def create
+    @restaurant = Restaurant.new(restaurant_params)
+    if @restaurant.save
+      redirect_to @restaurant
+    else
+      render :new
+    end
+  end
+
   def update
     @restaurant.update(restaurant_params)
     if @restaurant.save
