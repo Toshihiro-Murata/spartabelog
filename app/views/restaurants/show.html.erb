@@ -8,9 +8,18 @@
 <hr>
 
 <h2>#{レビュー平均点}</h2>
+<a class="btn btn-success btn-block" href="<%= new_restaurant_review_path(@restaurant) %>">レビューを投稿する</a>
 
 <h2>レビュー一覧</h2>
-#{レビュー一覧}
+<% if @restaurant.reviews.length > 0 %>
+  <ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= review.score %>点 - <%= review.body %></li>
+  <% end %>
+  </ul>
+<% else %>
+  <p>なし</p>
+<% end %>
 
 <hr>
 
