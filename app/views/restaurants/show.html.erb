@@ -14,7 +14,14 @@
 <% if @restaurant.reviews.length > 0 %>
   <ul>
   <% @restaurant.reviews.each do |review| %>
-    <li><%= review.score %>点 - <%= review.body %></li>
+    <li>
+      <%= review.score %>点 - <%= review.body %>
+      <% if current_user and current_user.id and
+            current_user.id == review.user_id %>
+        <%= link_to '編集',
+              edit_restaurant_review_path(@restaurant, review) %>
+      <% end %>
+    </li>
   <% end %>
   </ul>
 <% else %>
