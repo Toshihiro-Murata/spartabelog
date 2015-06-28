@@ -19,6 +19,10 @@
   <div class="form-group">
   <%= f.label :image, '店の画像' %><br>
   <%= f.file_field :image, class: "js-shop-image-upload" %>
+  <% if @restaurant.image.url %>
+    現在の画像:<br >
+    <%= image_tag @restaurant.image.url  %>
+  <% end %>
   </div>
   <%= f.submit '変更する', class: "btn btn-default" %>
 <% end %>
