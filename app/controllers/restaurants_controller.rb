@@ -46,6 +46,7 @@ class RestaurantsController < ApplicationController
       :address,
       :url,
       :image,
+      :tag_list,
     )
   end
 

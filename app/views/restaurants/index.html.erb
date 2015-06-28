@@ -26,6 +26,7 @@
       <h3>
         <a href="<%= restaurant_path(restaurant) %>"><%= restaurant.name %></a>
       </h3>
+      <p><%= render 'restaurants/tag_list', tag_list: restaurant.tag_list %></p>
       <h4><%= restaurant.address %></h4>
       <p>
         <ul>

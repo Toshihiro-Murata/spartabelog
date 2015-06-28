@@ -10,6 +10,7 @@
   <% score = calc_score(@restaurant) %>
   <p style="float:left;"><%= image_tag show_review_stars(score) %></p>
   <p style="color:red; font-size:170%;font-weight:bold;float:left;margin-top:-5px"><%= score %></p>
+  <p style="float:right"><%= render 'restaurants/tag_list', tag_list: @restaurant.tag_list %></p>
 </p>
 
 <hr style="clear:both;" />
