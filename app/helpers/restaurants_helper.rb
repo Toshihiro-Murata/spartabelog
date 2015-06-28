@@ -1,14 +1,17 @@
 module RestaurantsHelper
 
-  def show_review_stars resutaurant
+  def calc_score resutaurant
     all_stars_num = 5
     all_num = resutaurant.reviews.length
     scores = 0
     resutaurant.reviews.each do |review|
       scores += review.score
     end
-    colored_stars = (scores / all_num).round
-    case colored_stars
+    colored_stars = (scores / all_num)
+  end
+
+  def show_review_stars score
+    case score.round
     when 1
       "/images/star_ll10.gif"
     when 2

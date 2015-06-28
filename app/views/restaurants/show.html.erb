@@ -8,9 +8,14 @@
 <hr>
 
 <p>
-  <%= image_tag show_review_stars(@restaurant) %>
+  <% score = calc_score(@restaurant) %>
+  <p style="float:left;"><%= image_tag show_review_stars(score) %></p>
+  <p style="color:red; font-size:170%;font-weight:bold;float:left;margin-top:-5px"><%= score %></p>
 </p>
+<br sytle="clear:both">
+<p style="margin: 10px">
 <a class="btn btn-success btn-block" href="<%= new_restaurant_review_path(@restaurant) %>">レビューを投稿する</a>
+</p>
 
 <h2>レビュー一覧</h2>
 <% if @restaurant.reviews.length > 0 %>
