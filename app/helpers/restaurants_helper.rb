@@ -1,11 +1,11 @@
 module RestaurantsHelper
 
-  def favorite_added?(user_id, resutaurant)
-    return false unless (user_id and resutaurant)
-    resutaurant.favorites.each do |fav|
-      return true if user_id == fav.user_id
+  def get_favorite(user_id, resutaurant)
+    return nil unless (user_id and resutaurant)
+    resutaurant.favorites.each do |favorite|
+      return favorite if user_id == favorite.user_id
     end
-    false
+    nil
   end
 
   def shop_image_url resutaurant
