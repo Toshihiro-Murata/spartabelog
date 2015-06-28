@@ -7,6 +7,9 @@ module RestaurantsHelper
     resutaurant.reviews.each do |review|
       scores += review.score
     end
+    if scores == 0
+      return 0
+    end
     colored_stars = (scores / all_num)
   end
 
