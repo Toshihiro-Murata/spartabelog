@@ -18,8 +18,8 @@
   <% @restaurants.each do |restaurant| %>
   <div class="row">
     <div class="col-md-7">
-      <a href="#">
-        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+      <a href="<%= restaurant_path(restaurant) %>">
+        <img src="<%= shop_image_url(restaurant) %>" width="400" >
       </a>
     </div>
     <div class="col-md-5">

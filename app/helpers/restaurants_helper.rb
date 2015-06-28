@@ -1,5 +1,10 @@
 module RestaurantsHelper
 
+  def shop_image_url resutaurant
+    return resutaurant.image.url if resutaurant.image.url
+    "/images/nophoto.gif"
+  end
+
   def calc_score resutaurant
     all_stars_num = 5
     all_num = resutaurant.reviews.length
