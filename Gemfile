@@ -49,6 +49,8 @@ end
 gem 'devise'
 gem 'kaminari'
 gem 'carrierwave'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 source 'https://rails-assets.org'
 gem 'rails-assets-bootstrap-fileinput', '~> 2.5.0'
+
