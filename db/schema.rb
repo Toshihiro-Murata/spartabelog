@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150628062430) do
+ActiveRecord::Schema.define(version: 20150628075148) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "restaurant_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "favorites", ["restaurant_id", "user_id"], name: "index_favorites_on_restaurant_id_and_user_id", unique: true
+  add_index "favorites", ["restaurant_id"], name: "index_favorites_on_restaurant_id"
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"

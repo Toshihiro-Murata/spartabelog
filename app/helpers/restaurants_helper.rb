@@ -1,5 +1,13 @@
 module RestaurantsHelper
 
+  def favorite_added?(user_id, resutaurant)
+    return false unless (user_id and resutaurant)
+    resutaurant.favorites.each do |fav|
+      return true if user_id == fav.user_id
+    end
+    false
+  end
+
   def shop_image_url resutaurant
     return resutaurant.image.url if resutaurant.image.url
     "/images/nophoto.gif"

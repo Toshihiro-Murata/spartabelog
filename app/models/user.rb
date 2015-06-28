@@ -11,4 +11,7 @@ class User < ActiveRecord::Base
   #  presence: true, format: { with: VALID_EMAIL_REGEX }
   has_many :reviews
   has_many :restaurant, through: :reviews
+
+  has_many :favorites
+  has_many :restaurant, through: :favorites
 end
