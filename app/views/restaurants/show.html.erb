@@ -68,6 +68,11 @@
             <th>ホームページ</th>
             <td><a href="<%= @restaurant.url %>"><%= @restaurant.url %></a></td>
           </tr>
+          <tr>
+            <td colspan="2">
+<iframe src="http://maps.google.co.jp/maps?q=<%= @restaurant.address %>&z=14&output=embed" height="350" width="100%" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+            </td>
+          </tr>
         </table>
       </div>
     </div>
