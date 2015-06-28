@@ -1,24 +1,49 @@
-<p>
-<a class="btn btn-success btn-block" href="<%= new_restaurant_path %>">新しくお店を登録する</a>
-</p>
+<!-- Page Content -->
+<div class="container">
 
-<h1>レストラン一覧</h1>
-<table>
-<thead>
-<tr>
-  <td>名前</td>
-  <td>電話番号</td>
-  <td>住所</td>
-</tr>
-</thead>
-<tbody>
-<% @restaurants.each do |restaurant| %>
-  <tr>
-    <td><a href="<%= restaurant_path(restaurant) %>"><%= restaurant.name %></a></td>
-    <td><%= restaurant.tel %></td>
-    <td><%= restaurant.address %></td>
-<% end %>
-</tbody>
-</table>
+  <!-- Page Heading -->
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">レストラン一覧
+        <small>Secondary Text</small>
+        <p style="float:right">
+        <a class="btn btn-success btn-block" href="<%= new_restaurant_path %>">新しくお店を登録する</a>
+        </p>
+
+
+      </h1>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <!-- Project One -->
+  <% @restaurants.each do |restaurant| %>
+  <div class="row">
+    <div class="col-md-7">
+      <a href="#">
+        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+      </a>
+    </div>
+    <div class="col-md-5">
+      <h3>
+        <a href="<%= restaurant_path(restaurant) %>"><%= restaurant.name %></a>
+      </h3>
+      <h4><%= restaurant.address %></h4>
+      <p>
+        <ul>
+        <% restaurant.reviews.each do |review| %>
+          <li><%= review.body %> (<%= review.score %>)</li>
+        <% end %>
+        </ul>
+      </p>
+      <%= link_to '詳細を見る', restaurant_path(restaurant), class: "btn btn-primary" %>
+    </div>
+  </div>
+  <!-- /.row -->
+  <hr>
+  <% end %>
 
 <%= paginate @restaurants %>
+
+</div><!-- /.container -->
+<!-- /Page content -->
