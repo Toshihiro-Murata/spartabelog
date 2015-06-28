@@ -27,7 +27,7 @@
   <ul>
   <% @restaurant.reviews.each do |review| %>
     <li>
-      <%= review.score %>点 - <%= review.body %>
+      <%= review.score %>点 - <%= review.body %> by <%= review.user.name %>
       <% if current_user and current_user.id and
             current_user.id == review.user_id %>
         <%= link_to '編集',
