@@ -47,7 +47,8 @@ group :development, :test do
 end
 
 gem 'devise'
-
 gem 'kaminari'
-
 gem 'carrierwave'
+
+source 'https://rails-assets.org'
+gem 'rails-assets-bootstrap-fileinput', '~> 2.5.0'
