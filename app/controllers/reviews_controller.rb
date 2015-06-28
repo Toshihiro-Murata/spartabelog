@@ -1,13 +1,19 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_review, only: [:edit, :update]
-  before_action :set_restaurant, only: [:new, :create, :edit, :update]
+  before_action :set_restaurant, only: [:new, :create, :edit, :update, :destroy]
 
   def new
     @review = Review.new
   end
 
   def edit
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.delete
+    redirect_to @restaurant
   end
 
   def update

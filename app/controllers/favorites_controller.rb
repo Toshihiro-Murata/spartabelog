@@ -14,6 +14,8 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.find(params[:id])
     @favorite.delete
     redirect_to @restaurant
+  end
+
   private
 
   def set_restaurant

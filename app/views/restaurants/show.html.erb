@@ -50,9 +50,15 @@
   <p>
     <% favorite = get_favorite(current_user.id, @restaurant) %>
     <% if favorite %>
-      <%= link_to 'お気に入りを解除', restaurant_favorites_path([@restaurant, favorite]), method: :delete, class: "btn btn-info btn-block" %>
+      <%= link_to 'お気に入りを解除',
+             {:controller => :favorites, :action => :destroy, :id => favorite.id, :restaurant_id => @restaurant.id },
+             method: :delete,
+             class: "btn btn-info btn-block" %>
     <% else %>
-      <%= link_to 'お気に入りに登録', restaurant_favorites_path(@restaurant), method: :post, class: "btn btn-default btn-block" %>
+      <%= link_to 'お気に入りに登録',
+            restaurant_favorites_path(:restaurant_id => @restaurant.id),
+            method: :post,
+            class: "btn btn-default btn-block" %>
     <% end %>
   </p>
 </div>
